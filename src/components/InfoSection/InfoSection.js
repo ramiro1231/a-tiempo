@@ -1,18 +1,34 @@
 import React from 'react';
-import {InfoSec} from './InfoSection.elements';
 import {Link} from 'react-router-dom'
 import {Container, Button} from '../../globalStyles';
 import {
-    InfoRow, 
-    InfoColumn, 
+    InfoSec,
+    InfoRow,
+    InfoColumn,
     TextWrapper,
     TopLine,
     Heading,
-    Subtitle
-} from './InfoSection.elements'
+    Subtitle,
+    ImgWrapper,
+    Img
+  } from './InfoSection.elements';
 
 
-const InfoSection = ({lightBg, primary, imgStart, lightTopLine, lightTextDesc, buttonLabel, description,headLine, topLine, lightText }) => {
+const InfoSection = ({
+    primary,
+    lightBg,
+    topLine,
+    lightTopLine,
+    lightText,
+    lightTextDesc,
+    headline,
+    description,
+    buttonLabel,
+    img,
+    alt,
+    imgStart,
+    start
+ }) => {
     return(
         <>
             <InfoSec lightBg={lightBg}>
@@ -21,7 +37,7 @@ const InfoSection = ({lightBg, primary, imgStart, lightTopLine, lightTextDesc, b
                         <InfoColumn>
                             <TextWrapper>
                                 <TopLine lightTopLine={lightTopLine}>{topLine}</TopLine>
-                                <Heading lightText={lightText}>{headLine}</Heading>
+                                <Heading lightText={lightText}>{headline}</Heading>
                                 <Subtitle lightTextDesc={lightTextDesc}>{description}</Subtitle>
                                 <Link to='/sign-up'>
                                     <Button big fontBig primary={primary}>
@@ -29,6 +45,11 @@ const InfoSection = ({lightBg, primary, imgStart, lightTopLine, lightTextDesc, b
                                     </Button>
                                 </Link>
                             </TextWrapper>
+                        </InfoColumn>
+                        <InfoColumn>
+                            <ImgWrapper start={start}>
+                                <Img src={img} alt={alt}/>
+                            </ImgWrapper>
                         </InfoColumn>
                     </InfoRow>
                 </Container>
